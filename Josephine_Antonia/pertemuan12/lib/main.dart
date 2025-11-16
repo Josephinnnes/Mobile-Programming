@@ -1,18 +1,18 @@
 import 'user.dart';
 void main() {
-  print ('=== DEBUG: Check JSON Structure === ');
+  print (' === DEBUG: Check JSON Structure === ');
 
   // Object Dart ke JSON
-  User user = User( 
+  User user = User(
     id: 1,
     name: 'John Doe',
     email: 'john@example.com',
-    createdAt: DateTime.now( ),
-  ); 
+    createdAt: DateTime.now(),
+  );
 
-  Map<String, dynamic> userJson = user.toJson() ;
+  Map<String, dynamic> userJson = user.toJson();
   print('User.toJson() result: $userJson');
-  print('Field names: ${userJson.keys.toList()}');
+  print ('Field names: ${userJson.keys. toList()}');
 
   print('\n === TEST: JSON to Object === ');
 
@@ -25,22 +25,22 @@ void main() {
   };
 
   // Debug: Print JSON structure
-  print('JSON data to parse: $jsonData');
-  print('JSON keys: ${jsonData.keys. toList()}');
-  print('id: ${jsonData['id']} (type: ${jsonData['id']. runtimeType})');
-  print('name: ${jsonData['name']} (type: ${jsonData['name' ]. runtimeType})');
-  print('email: ${jsonData['email']} (type: ${jsonData['email'].runtimeType})');
+  print ('JSON data to parse: $jsonData');
+  print ('JSON keys: ${jsonData.keys. toList()}');
+  print('id: ${jsonData['id']} (type: ${jsonData['id'].runtimeType})');
+  print('name: ${jsonData['name']} (type: ${jsonData ['name' ]. runtimeType}) ');
+  print('email: ${jsonData['email']} (type: ${jsonData['email'].runtimeType}) ');
   print(
-  'createdAt: ${jsonData['createdAt']} (type: ${jsonData ['createdAt'] . runtimeType})' ,
+    'createdAt: ${jsonData['createdAt']} (type: ${jsonData ['createdAt'] . runtimeType} )',
   );
+
   try {
     User userFromJson = User.fromJson(jsonData);
     print (' SUCCESS: User from JSON: $userFromJson');
   } catch (e, stack) {
     print ('X ERROR: $e');
-    print ('Stack trace: $stack');
+    print('Stack trace: $stack');
   }
-
 
   print ('\n === TEST: Handle Missing Fields === ');
 
@@ -49,12 +49,12 @@ void main() {
     'id': 3,
     // 'name': missing
     'email': 'test@example.com',
-    // 'createdAt': missing
+    //'createdAt': missing
   };
 
   try {
-    User userFromIncomplete = User.fromJson(incompleteJson);
-    print ('User from incomplete JSON: $userFromIncomplete');
+    User userFromIncomplete = User. fromJson(incompleteJson);
+    print('User from incomplete JSON: $userFromIncomplete');
   } catch (e) {
     print ('Error with incomplete JSON: $e');
   }
